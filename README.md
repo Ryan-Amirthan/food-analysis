@@ -16,4 +16,10 @@ Using a dataset of 83,782 recipes from Food.com, we explore various nutritional 
 
 Through this analysis, we aim to help home cooks make more informed decisions about their recipe choices and understand the relationship between the 'healthy' tag, nutritional content, and recipe popularity.
 
-## Exploratory Data Analysis and Cleaning
+## Data Cleaning and Exploratory Data Analysis
+
+## Framing a Prediction Problem
+
+## Baseline Model
+
+## Final Model
