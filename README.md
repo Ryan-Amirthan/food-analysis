@@ -53,11 +53,14 @@ Let's first examine how recipes are rated on Food.com:
   height="600"
   frameborder="0"
 ></iframe>
-
 The distribution of recipe ratings shows a strong positive skew, with an average rating of 4.68. Most recipes receive ratings between 4 and 5 stars, suggesting users tend to rate recipes quite favorably or may only rate recipes they enjoyed.
-
-
-
+<iframe
+  src="assets/num_ingredients.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+Most recipes on Food.com use between 8-12 ingredients, with a mean of 9.8 ingredients per recipe. Interestingly, the distribution is slightly right-skewed, showing that while some complex recipes use over 20 ingredients, they are relatively rare on the platform. This insight helps us understand recipe complexity and sets a baseline for comparing healthy versus non-healthy recipes.
 ## Framing a Prediction Problem
 "Can we predict whether a recipe will be tagged as "healthy" based on its nutritional information?"
 
