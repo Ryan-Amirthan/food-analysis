@@ -18,7 +18,7 @@ Through this analysis, we aim to help home cooks make more informed decisions ab
 
 ## Data Cleaning and Exploratory Data Analysis
 
-###Initial merged dataset (food.com's raw reviews and interactions):
+### Initial merged dataset (food.com's raw reviews and interactions):
 ```py
 print(recipes_with_ratings.head().to_markdown(index=True))
 ```
