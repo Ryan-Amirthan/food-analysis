@@ -45,7 +45,9 @@ The full dataset includes the following columns:
 - Health metrics: is_healthy, health_score
 
 ## Framing a Prediction Problem
+"Can we predict whether a recipe will be tagged as "healthy" based on its nutritional information?"
 
+This is a binary classification problem where we'll predict whether a recipe should be tagged as 'healthy' based on its nutritional information. We'll use F1-score as our evaluation metric since we want to balance precision (avoiding false 'healthy' labels) and recall (not missing truly healthy recipes). At prediction time, we would have access to all nutritional information (calories, fat, protein, etc.) and ingredient counts, but would exclude user ratings and reviews since these wouldn't be available for a new recipe being classified.
 ## Baseline Model
 
 ## Final Model
