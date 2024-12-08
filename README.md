@@ -86,6 +86,21 @@ Let's also look at how recipe ratings compare between healthy and non-healthy re
 
 The box plot comparison shows surprisingly similar rating distributions between healthy and non-healthy recipes, with both categories maintaining high median ratings at 5, however the lower fence of healthy recipes is about ~0.4 lower than others). This suggests that taste satisfaction isn't sacrificed too much in popular healthy recipes, challenging the common perception that more 'healthy' foods are less enjoyable.
 
+### Interesting Aggregates
+
+Here's a comprehensive comparison of nutritional profiles between healthy and non-healthy recipes:
+
+```py
+print(nutrition_comparison.to_markdown(index=True))
+```
+
+| Recipe Type | Calories | Protein (% DV) | Sugar (% DV) | Total Fat (% DV) | Sodium (% DV) | Carbs (% DV) | Avg Rating | Count |
+|-------------|----------|----------------|--------------|------------------|---------------|--------------|------------|--------|
+| Non-Healthy | 444.6    | 34.42          | 64.35        | 36.79            | 28.67         | 12.80        | 4.63       | 70,052 |
+| Healthy     | 355.1    | 26.58          | 90.70        | 11.39            | 30.32         | 18.82        | 4.59       | 13,730 |
+
+This aggregation reveals several interesting patterns. Healthy recipes tend to have about 90 fewer calories on average and significantly lower fat content (11.4% vs 36.8% DV). However, they surprisingly contain higher sugar and carbohydrate content. The similar average ratings (4.59 vs 4.63) suggest that healthier options don't compromise on taste. It's worth noting that healthy recipes make up only about 16% of the dataset, with 13,730 recipes compared to 70,052 non-healthy recipes.
+
 ## Framing a Prediction Problem
 "Can we predict whether a recipe will be tagged as "healthy" based on its nutritional information?"
 
