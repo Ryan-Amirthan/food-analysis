@@ -48,6 +48,29 @@ The full dataset includes the following columns:
 "Can we predict whether a recipe will be tagged as "healthy" based on its nutritional information?"
 
 This is a binary classification problem where we'll predict whether a recipe should be tagged as 'healthy' based on its nutritional information. We'll use F1-score as our evaluation metric since we want to balance precision (avoiding false 'healthy' labels) and recall (not missing truly healthy recipes). At prediction time, we would have access to all nutritional information (calories, fat, protein, etc.) and ingredient counts, but would exclude user ratings and reviews since these wouldn't be available for a new recipe being classified.
+
 ## Baseline Model
+Our baseline model attempts to predict whether a recipe will be tagged as "healthy" using four quantitative features from the nutritional information:
+
+Calories (total calories in recipe)
+Sugar (% daily value)
+Sodium (% daily value)
+Total Fat (% daily value)
+
+All features were standardized using StandardScaler to ensure they're on the same scale, and a logistic regression classifier was used as our baseline model. The model was implemented as a scikit-learn Pipeline to ensure proper scaling of both training and test data.
+The model achieved an F1 score of 0.183 on our test set, which is relatively poor performance (for context, random guessing would achieve around 0.1 F1 score given the class imbalance in our dataset). This suggests that simply looking at these basic nutritional metrics isn't sufficient to identify what recipes are tagged as "healthy" on Food.com.
+Looking at the feature coefficients:
+
+Calories (3.59): Surprisingly, higher calorie content is positively associated with the "healthy" tag
+Total Fat (-7.57): Strong negative association with "healthy" tag
+Sugar (-0.61): Moderate negative association
+Sodium (-0.01): Very weak negative association
+
+These coefficients reveal some interesting patterns - while high fat and sugar content do reduce the likelihood of a "healthy" tag as we might expect, the positive relationship with calories is counterintuitive. This suggests that the relationship between nutritional content and "healthy" tags is more complex than our baseline model can capture.
+The low performance of this model indicates we'll need to consider additional features and potentially more sophisticated modeling approaches to better predict healthy recipe tags. Some potential improvements that I didn't consider for the baseline model:
+
+Adding protein and carbohydrate content
+Considering ingredient counts and types
+Looking at cooking methods or preparation steps
 
 ## Final Model
