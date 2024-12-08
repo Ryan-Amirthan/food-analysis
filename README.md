@@ -101,6 +101,18 @@ print(nutrition_comparison.to_markdown(index=True))
 
 This aggregation reveals several interesting patterns. Healthy recipes tend to have about 90 fewer calories on average and significantly lower fat content (11.4% vs 36.8% DV). However, they surprisingly contain higher sugar and carbohydrate content. The similar average ratings (4.59 vs 4.63) suggest that healthier options don't compromise on taste. It's worth noting that healthy recipes make up only about 16% of the dataset, with 13,730 recipes compared to 70,052 non-healthy recipes.
 
+### Missing Values and Imputation
+
+Our analysis of missing values in the dataset revealed:
+
+| Column          | Missing Values | Percentage |
+|-----------------|----------------|------------|
+| name            | 1             | 0.00%      |
+| description     | 70            | 0.08%      |
+| average_rating  | 2,609         | 3.11%      |
+
+Given the low percentage of missing values, I chose not to perform imputation for most columns. The missing recipe name (0.00%) and descriptions (0.08%) are negligible and don't impact our analysis of nutritional content and health tags. For average ratings, which has a slightly higher missing rate of 3.11%, we kept the missing values as is since this represents recipes that haven't been rated yet and imputing values could introduce bias in our analysis of recipe popularity. Notably, all nutritional information fields were complete, allowing for robust analysis of our main research question about healthy versus non-healthy recipe characteristics.
+
 ## Framing a Prediction Problem
 "Can we predict whether a recipe will be tagged as "healthy" based on its nutritional information?"
 
@@ -157,4 +169,4 @@ Our final model achieved an F1 score of 0.309, a 69% improvement over the baseli
 
 Looking at feature importances, total fat content (0.30) and saturated fat (0.18) were the strongest predictors of the "healthy" tag, followed by calories (0.17). Interestingly, our engineered features had relatively lower importance, suggesting that while they helped improve model performance, the basic nutritional metrics still carry the most predictive power.
 
-While our final model shows clear improvement, the still-modest F1 score suggests that nutritional content alone isn't sufficient to fully predict what recipes get tagged as "healthy" on Food.com. This indicates that user perception of "healthy" recipes may involve factors beyond pure nutritional metrics.
+While our final model shows clear improvement, the still-modest F1 score suggests that nutritional content alone isn't sufficient to fully predict what recipes get tagged as "healthy" on Food.com. This indicates that user perception of "healthy" recipes may involve factors beyond pure nutritional metrics and may be quite arbitrary or open to definition!
