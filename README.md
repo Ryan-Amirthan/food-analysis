@@ -1,4 +1,5 @@
 # Are your online recipes even healthy?
+### An Analysis led by Ryan Stephen (ryanstep@umich.edu)
 
 ## Introduction
 
