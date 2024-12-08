@@ -44,6 +44,20 @@ The full dataset includes the following columns:
 - Nutritional information: calories, total_fat_pdv, sugar_pdv, sodium_pdv, protein_pdv, saturated_fat_pdv, carbohydrates_pdv
 - Health metrics: is_healthy, health_score
 
+### Univariate Analysis
+Let's first examine how recipes are rated on Food.com:
+
+<iframe
+  src="assets/rating_distribution.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+The distribution of recipe ratings shows a strong positive skew, with an average rating of 4.68. Most recipes receive ratings between 4 and 5 stars, suggesting users tend to rate recipes quite favorably or may only rate recipes they enjoyed.
+
+
+
 ## Framing a Prediction Problem
 "Can we predict whether a recipe will be tagged as "healthy" based on its nutritional information?"
 
@@ -86,14 +100,14 @@ Our final feature set included:
 * Base nutritional metrics (calories, total fat, protein, sugar, sodium, saturated fat)
 * The two engineered features above
 
-## Model Selection and Tuning
+### Model Selection and Tuning
 I chose a Random Forest Classifier because it can capture non-linear relationships between nutritional features and the "healthy" tag, which our baseline logistic regression couldn't do. To find the best model configuration, I performed a grid search over these hyperparameters:
 * Number of trees: [50, 100]
 * Maximum tree depth: [8, 10]
 
 The best performing model used 100 trees with a maximum depth of 10.
 
-## Performance
+### Performance
 Our final model achieved an F1 score of 0.309, a 69% improvement over the baseline model's score of 0.183. This suggests that:
 1. Our engineered features helped capture more meaningful nutritional relationships
 2. The non-linear capabilities of Random Forests better model the complex relationship between nutrition and "healthy" labels
