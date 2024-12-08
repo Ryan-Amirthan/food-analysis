@@ -60,7 +60,32 @@ The distribution of recipe ratings shows a strong positive skew, with an average
   height="600"
   frameborder="0"
 ></iframe>
-Most recipes on Food.com use between 8-12 ingredients, with a mean of 9.8 ingredients per recipe. Interestingly, the distribution is slightly right-skewed, showing that while some complex recipes use over 20 ingredients, they are relatively rare on the platform. This insight helps us understand recipe complexity and sets a baseline for comparing healthy versus non-healthy recipes.
+Most recipes on Food.com use between 8-12 ingredients, with a mean of 9.2 ingredients per recipe. Interestingly, the distribution is slightly right-skewed, showing that while some complex recipes use over 20 ingredients, they are relatively rare on the platform. This insight helps us understand recipe complexity and sets a baseline for comparing healthy versus non-healthy recipes.
+
+### Bivariate Analysis
+
+et's examine the relationship between calories and protein content, comparing healthy and non-healthy recipes:
+
+<iframe
+ src="assets/calorie_vs_protein.html"
+ width="800"
+ height="600"
+ frameborder="0"
+></iframe>
+
+The scatter plot reveals an interesting relationship between calories and protein content. While both healthy and non-healthy recipes show a general trend of increasing protein with higher calories, healthy recipes (shown in blue) tend to cluster in the lower-calorie, lower-protein region. This suggests that recipes tagged as healthy do tend not to prioritize protein-to-calorie ratio, further supporting the notion that the idea of "healthy" is very relative to an individual's goals.
+
+Let's also look at how recipe ratings compare between healthy and non-healthy recipes:
+
+<iframe
+ src="assets/ratings_vs_health.html"
+ width="800"
+ height="600"
+ frameborder="0"
+></iframe>
+
+The box plot comparison shows surprisingly similar rating distributions between healthy and non-healthy recipes, with both categories maintaining high median ratings at 5, however the lower fence of healthy recipes is about ~0.4 lower than others). This suggests that taste satisfaction isn't sacrificed too much in popular healthy recipes, challenging the common perception that more 'healthy' foods are less enjoyable.
+
 ## Framing a Prediction Problem
 "Can we predict whether a recipe will be tagged as "healthy" based on its nutritional information?"
 
