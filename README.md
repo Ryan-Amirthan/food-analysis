@@ -67,10 +67,37 @@ Looking at the feature coefficients:
 4. Sodium (-0.01): Very weak negative association
 
 These coefficients reveal some interesting patterns - while high fat and sugar content do reduce the likelihood of a "healthy" tag as we might expect, the positive relationship with calories is counterintuitive. This suggests that the relationship between nutritional content and "healthy" tags is more complex than our baseline model can capture.
-The low performance of this model indicates we'll need to consider additional features and potentially more sophisticated modeling approaches to better predict healthy recipe tags. Some potential improvements that I didn't consider for the baseline model:
+The low performance of this model indicates I'll need to consider additional features and potentially more sophisticated modeling approaches to better predict healthy recipe tags. Some potential improvements that I didn't consider for the baseline model:
 
 1. Adding protein and carbohydrate content
 2. Considering ingredient counts and types
 3. Looking at cooking methods or preparation steps
 
 ## Final Model
+
+I improved upon our baseline logistic regression model using a Random Forest Classifier and engineered features designed to capture more complex nutritional relationships.
+
+### Feature Engineering 
+I added two new features based on domain knowledge about nutrition:
+1. **Healthy Nutrient Ratio**: Measures the balance of protein (a beneficial nutrient) relative to unhealthy components (fats and sugars). This helps capture whether a recipe has a good balance of macronutrients rather than just looking at absolute values.
+2. **Unhealthy Nutrient Density**: Calculates the concentration of unhealthy nutrients (fats, sugars, sodium) per calorie. This helps distinguish between recipes that are caloric due to healthy versus unhealthy ingredients.
+
+Our final feature set included:
+* Base nutritional metrics (calories, total fat, protein, sugar, sodium, saturated fat)
+* The two engineered features above
+
+## Model Selection and Tuning
+I chose a Random Forest Classifier because it can capture non-linear relationships between nutritional features and the "healthy" tag, which our baseline logistic regression couldn't do. To find the best model configuration, I performed a grid search over these hyperparameters:
+* Number of trees: [50, 100]
+* Maximum tree depth: [8, 10]
+
+The best performing model used 100 trees with a maximum depth of 10.
+
+## Performance
+Our final model achieved an F1 score of 0.309, a 69% improvement over the baseline model's score of 0.183. This suggests that:
+1. Our engineered features helped capture more meaningful nutritional relationships
+2. The non-linear capabilities of Random Forests better model the complex relationship between nutrition and "healthy" labels
+
+Looking at feature importances, total fat content (0.30) and saturated fat (0.18) were the strongest predictors of the "healthy" tag, followed by calories (0.17). Interestingly, our engineered features had relatively lower importance, suggesting that while they helped improve model performance, the basic nutritional metrics still carry the most predictive power.
+
+While our final model shows clear improvement, the still-modest F1 score suggests that nutritional content alone isn't sufficient to fully predict what recipes get tagged as "healthy" on Food.com. This indicates that user perception of "healthy" recipes may involve factors beyond pure nutritional metrics.
