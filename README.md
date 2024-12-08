@@ -64,7 +64,7 @@ Most recipes on Food.com use between 8-12 ingredients, with a mean of 9.2 ingred
 
 ### Bivariate Analysis
 
-et's examine the relationship between calories and protein content, comparing healthy and non-healthy recipes:
+let's examine the relationship between calories and protein content, comparing healthy and non-healthy recipes:
 
 <iframe
  src="assets/calorie_vs_protein.html"
