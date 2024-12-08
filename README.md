@@ -18,9 +18,10 @@ Through this analysis, we aim to help home cooks make more informed decisions ab
 
 ## Data Cleaning and Exploratory Data Analysis
 
-'''py
+###Initial merged dataset (food.com's raw reviews and interactions):
+```py
 print(recipes_with_ratings.head().to_markdown(index=True))
-'''
+```
 Our final dataset contains 83,782 recipes with 22 columns, including nutritional information, ratings, and recipe characteristics. Here's a look at the first few rows of our cleaned dataset:
 
 | Name | Minutes | N Ingredients | Average Rating | Calories | Health Score | Is Healthy |
