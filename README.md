@@ -20,17 +20,30 @@ Through this analysis, we aim to help home cooks make more informed decisions ab
 
 ### Initial merged dataset (food.com's raw reviews and interactions):
 ```py
-print(recipes_with_ratings.head().to_markdown(index=True))
+print(recipes_with_ratings[['name', 'tags', 'is_healthy', 'calories', 'protein_pdv']].head().to_markdown(index=True))
 ```
-Our final dataset contains 83,782 recipes with 22 columns, including nutritional information, ratings, and recipe characteristics. Here's a look at the first few rows of our cleaned dataset:
+After processing and cleaning our dataset, we have 83,782 recipes with 22 columns, including:
+- Basic recipe information (name, steps, ingredients)
+- Nutritional data (calories, protein, fat, etc.)
+- Recipe metadata (submission date, ratings)
+- Health indicators (is_healthy flag, health_score)
 
-| Name | Minutes | N Ingredients | Average Rating | Calories | Health Score | Is Healthy |
-|------|----------|---------------|----------------|-----------|--------------|------------|
-| 1 brownies in the world best ever | 40 | 9 | 4.0 | 138.4 | 2 | False |
-| 1 in canada chocolate chip cookies | 45 | 11 | 5.0 | 595.1 | 2 | False |
-| 412 broccoli casserole | 40 | 9 | 5.0 | 194.8 | 2 | False |
-| millionaire pound cake | 120 | 7 | 5.0 | 878.3 | 1 | False |
-| 2000 meatloaf | 90 | 13 | 5.0 | 267.0 | 3 | False |
+Here's a glimpse of our processed data, focusing on recipe names, health status, calories, and protein content:
+
+| Name | Is Healthy | Calories | Protein (% DV) |
+|------|------------|----------|----------------|
+| 1 brownies in the world best ever | False | 138.4 | 3 |
+| 1 in canada chocolate chip cookies | False | 595.1 | 13 |
+| 412 broccoli casserole | False | 194.8 | 22 |
+| millionaire pound cake | False | 878.3 | 20 |
+| 2000 meatloaf | False | 267.0 | 29 |
+
+The full dataset includes the following columns:
+- Recipe details: name, minutes, n_steps, steps, ingredients, n_ingredients
+- User interaction: contributor_id, submitted, average_rating
+- Nutritional information: calories, total_fat_pdv, sugar_pdv, sodium_pdv, protein_pdv, saturated_fat_pdv, carbohydrates_pdv
+- Health metrics: is_healthy, health_score
+
 ## Framing a Prediction Problem
 
 ## Baseline Model
