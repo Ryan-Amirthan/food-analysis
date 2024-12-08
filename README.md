@@ -105,13 +105,17 @@ This aggregation reveals several interesting patterns. Healthy recipes tend to h
 
 Our analysis of missing values in the dataset revealed:
 
+```py
+print(missing_info.to_markdown(index=True))
+```
+
 | Column          | Missing Values | Percentage |
 |-----------------|----------------|------------|
 | name            | 1             | 0.00%      |
 | description     | 70            | 0.08%      |
 | average_rating  | 2,609         | 3.11%      |
 
-Given the low percentage of missing values, I chose not to perform imputation for most columns. The missing recipe name (0.00%) and descriptions (0.08%) are negligible and don't impact our analysis of nutritional content and health tags. For average ratings, which has a slightly higher missing rate of 3.11%, we kept the missing values as is since this represents recipes that haven't been rated yet and imputing values could introduce bias in our analysis of recipe popularity. Notably, all nutritional information fields were complete, allowing for robust analysis of our main research question about healthy versus non-healthy recipe characteristics.
+Given the low percentage of missing values, I chose not to perform imputation for most columns. The missing recipe name (0.00%) and descriptions (0.08%) are negligible and don't impact our analysis of nutritional content and health tags. For average ratings, which has a slightly higher missing rate of 3.11%, I kept the missing values as is since this represents recipes that haven't been rated yet and imputing values could introduce bias in our analysis of recipe popularity. Notably, all nutritional information fields were complete, allowing for robust analysis of our main research question about healthy versus non-healthy recipe characteristics.
 
 ## Framing a Prediction Problem
 "Can we predict whether a recipe will be tagged as "healthy" based on its nutritional information?"
