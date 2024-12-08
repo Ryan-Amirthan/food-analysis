@@ -18,6 +18,18 @@ Through this analysis, we aim to help home cooks make more informed decisions ab
 
 ## Data Cleaning and Exploratory Data Analysis
 
+'''py
+print(recipes_with_ratings.head().to_markdown(index=True))
+'''
+Our final dataset contains 83,782 recipes with 22 columns, including nutritional information, ratings, and recipe characteristics. Here's a look at the first few rows of our cleaned dataset:
+
+| Name | Minutes | N Ingredients | Average Rating | Calories | Health Score | Is Healthy |
+|------|----------|---------------|----------------|-----------|--------------|------------|
+| 1 brownies in the world best ever | 40 | 9 | 4.0 | 138.4 | 2 | False |
+| 1 in canada chocolate chip cookies | 45 | 11 | 5.0 | 595.1 | 2 | False |
+| 412 broccoli casserole | 40 | 9 | 5.0 | 194.8 | 2 | False |
+| millionaire pound cake | 120 | 7 | 5.0 | 878.3 | 1 | False |
+| 2000 meatloaf | 90 | 13 | 5.0 | 267.0 | 3 | False |
 ## Framing a Prediction Problem
 
 ## Baseline Model
